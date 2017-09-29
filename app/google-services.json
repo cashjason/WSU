@@ -1,0 +1,195 @@
+{
+  "project_info": {
+    "project_number": "56276827106",
+    "firebase_url": "https://wsu-baseball.firebaseio.com",
+    "project_id": "wsu-baseball",
+    "storage_bucket": "wsu-baseball.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56276827106:android:87b93e50975bc9d3",
+        "android_client_info": {
+          "package_name": "com.baseball.wsu.diamyn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56276827106-hq5liplejnndgnro8p6h2322vuocd076.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.baseball.wsu.diamyn",
+            "certificate_hash": "20e4b2966fa6b22c219c4da2a2fba564b579b8c7"
+          }
+        },
+        {
+          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56276827106:android:3801cc68fd588f45",
+        "android_client_info": {
+          "package_name": "com.wsubaseball.ashish.wsubaseball"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56276827106-ec1ve4m0h05aongdjb61gqefv9cq35eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wsubaseball.ashish.wsubaseball",
+            "certificate_hash": "42915ca68a939f46ac04076594296a2df2fa8cfd"
+          }
+        },
+        {
+          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56276827106:android:40ef50b0493d430c",
+        "android_client_info": {
+          "package_name": "com.example.cashj.diamyn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56276827106-1h33960sspn9c787dv5s03e4a909t5qo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cashj.diamyn",
+            "certificate_hash": "20e4b2966fa6b22c219c4da2a2fba564b579b8c7"
+          }
+        },
+        {
+          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:56276827106:android:4bee7aaa3b2e2394",
+        "android_client_info": {
+          "package_name": "com.example.cashj.wsu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "56276827106-jt6n3fpg8tlsatac4442vuto4k6cgrjm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cashj.wsu",
+            "certificate_hash": "121e885e0d15bbd4b7943a0226a86defadc8cdc8"
+          }
+        },
+        {
+          "client_id": "56276827106-q6stmc2jfu8hsls4fie3ard119as3aa1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cashj.wsu",
+            "certificate_hash": "20e4b2966fa6b22c219c4da2a2fba564b579b8c7"
+          }
+        },
+        {
+          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

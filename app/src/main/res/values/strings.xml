@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Diamyn Performance</string>
+    <string name="loginBtn">LOGIN</string>
+    <string name="emailEntry">EMAIL</string>
+    <string name="passEntry">PASSWORD</string>
+    <string name="pregame_evaluation">Pregame Evaluation</string>
+</resources>
