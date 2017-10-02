@@ -26,14 +26,13 @@
 
     <EditText
         android:id="@+id/emailEntry"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/colorPrimary"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="@color/colorPrimaryDark" />
+        android:padding="10dp" />
 
     <TextView
         android:id="@+id/textView19"
@@ -43,14 +42,13 @@
 
     <EditText
         android:id="@+id/emailVerify"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/colorPrimary"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="@color/colorPrimaryDark" />
+        android:padding="10dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -60,22 +58,21 @@
 
     <EditText
         android:id="@+id/passEntry"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/colorPrimary"
         android:ems="10"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:text=""
-        android:textColor="@color/colorPrimaryDark" />
+        android:text="" />
 
     <Button
         android:id="@+id/createAccount"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/colorAccent"
         android:text="Create Account" />
 
 </LinearLayout>
