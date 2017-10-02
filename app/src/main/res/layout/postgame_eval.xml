@@ -8,22 +8,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <SeekBar
-        android:id="@+id/seekBar8"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:max="9"
-        android:progress="4" />
-
-    <SeekBar
-        android:id="@+id/seekBar7"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:max="9"
-        android:progress="4" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
