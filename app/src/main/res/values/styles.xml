@@ -19,4 +19,18 @@
         <item name="android:colorBackground">@android:color/background_dark</item>
     </style>
 
+    <style name="ButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/btnshape</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/edittextshape</item>
+    </style>
+
 </resources>
