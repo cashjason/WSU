@@ -101,4 +101,10 @@
         android:max="9"
         android:progress="4" />
 
+    <Button
+        android:id="@+id/postgameSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
 </LinearLayout>

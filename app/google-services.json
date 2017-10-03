@@ -147,6 +147,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "56276827106-sd62ad8bodrerfvuojfbti66sdrft2ng.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cashj.wsu",
+            "certificate_hash": "8f93864802c3c70780acbcb88ec530bf9795f250"
+          }
+        },
+        {
           "client_id": "56276827106-jt6n3fpg8tlsatac4442vuto4k6cgrjm.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
