@@ -17,10 +17,17 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/d1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="R = Relaxation Level" />
+
+    <TextView
         android:id="@+id/q1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="R" />
+        android:gravity="center"
+        android:text="q1" />
 
     <SeekBar
         android:id="@+id/seekBar2"
@@ -32,10 +39,17 @@
         android:visibility="visible" />
 
     <TextView
+        android:id="@+id/d2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A = Amp Level" />
+
+    <TextView
         android:id="@+id/q2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="A" />
+        android:gravity="center"
+        android:text="q2" />
 
     <SeekBar
         android:id="@+id/seekBar6"
@@ -46,10 +60,17 @@
         android:progress="4" />
 
     <TextView
+        android:id="@+id/d3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I = Imagine Before Action" />
+
+    <TextView
         android:id="@+id/q3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="I" />
+        android:gravity="center"
+        android:text="q3" />
 
     <SeekBar
         android:id="@+id/seekBar4"
@@ -60,10 +81,17 @@
         android:progress="4" />
 
     <TextView
+        android:id="@+id/d4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D = Dominate THIS Moment" />
+
+    <TextView
         android:id="@+id/q4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="D" />
+        android:gravity="center"
+        android:text="q4" />
 
     <SeekBar
         android:id="@+id/seekBar3"
@@ -74,10 +102,17 @@
         android:progress="4" />
 
     <TextView
+        android:id="@+id/d5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E = Embrace Advirsity" />
+
+    <TextView
         android:id="@+id/q5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="E" />
+        android:gravity="center"
+        android:text="q5" />
 
     <SeekBar
         android:id="@+id/seekBar"
@@ -89,10 +124,17 @@
         android:visibility="visible" />
 
     <TextView
+        android:id="@+id/d6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="R = Routines" />
+
+    <TextView
         android:id="@+id/q6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="R" />
+        android:gravity="center"
+        android:text="q6" />
 
     <SeekBar
         android:id="@+id/seekBar5"
@@ -104,6 +146,7 @@
 
     <Button
         android:id="@+id/postgameSend"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />

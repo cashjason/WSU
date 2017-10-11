@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by cashj on 9/15/2017.
+ * Created by cashj on 10/11/2017.
  */
 
-public class PregameEval extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pregame_eval);
+        setContentView(R.layout.postgame_eval);
     }
 }

@@ -45,14 +45,11 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        Button pregameEvalBtn = (Button) findViewById(R.id.pregameEval);
-        pregameEvalBtn.setOnClickListener(this);
+        Button evals = (Button) findViewById(R.id.evaluationsBtn);
+        evals.setOnClickListener(this);
 
         Button history = (Button) findViewById(R.id.historybtn);
         history.setOnClickListener(this);
-
-        Button postgameEvalBtn = (Button) findViewById(R.id.postgameEval);
-        postgameEvalBtn.setOnClickListener(this);
 
         Button signOutBtn = (Button) findViewById(R.id.signOut);
         signOutBtn.setOnClickListener(this);
@@ -85,6 +82,14 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent a = new Intent(Intent.ACTION_MAIN);
+        a.addCategory(Intent.CATEGORY_HOME);
+        a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(a);
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
         //Update fields with info from the database
@@ -112,16 +117,12 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.pregameEval) {
-            Intent act = new Intent(getApplicationContext(), PregameEval.class);
+        if (i == R.id.evaluationsBtn) {
+            Intent act = new Intent(getApplicationContext(), Evaluations.class);
             startActivity(act);
         }
         if (i == R.id.historybtn) {
             Intent act = new Intent(getApplicationContext(), History.class);
-            startActivity(act);
-        }
-        if (i == R.id.postgameEval) {
-            Intent act = new Intent(getApplicationContext(), PostgameEval.class);
             startActivity(act);
         }
         if (i == R.id.signOut) {
