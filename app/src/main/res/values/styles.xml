@@ -25,4 +25,9 @@
         <item name="android:background">@drawable/edittextshape</item>
     </style>
 
+    <style name="SeekStyle" parent="@android:style/Widget.SeekBar">
+        <item name="android:background">@drawable/whitenums</item>
+        <item name="android:thumb">@drawable/thumbdraw</item>
+        <item name="android:progressDrawable">@drawable/progressdraw</item>
+    </style>
 </resources>
