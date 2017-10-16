@@ -1,5 +1,6 @@
 package com.example.cashj.wsu;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,8 +24,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    ProgressBar progress;
     EditText email;
     EditText password;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         email = (EditText) findViewById(R.id.emailEntry);
         password = (EditText) findViewById(R.id.passEntry);
         mAuth = FirebaseAuth.getInstance();
+        progress = (ProgressBar) findViewById(R.id.progress);
+        progress.setVisibility(View.GONE);
     }
 
     @Override
@@ -70,23 +77,27 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         String pass = password.getText().toString();
         int i = v.getId();
         if (i == R.id.loginBtn) {
+            progress.setVisibility(View.VISIBLE);
             try {
                 mAuth.signInWithEmailAndPassword(em, pass)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            progress.setVisibility(View.GONE);
                             Intent home = new Intent(getApplicationContext(), Home.class);
                             startActivity(home);
                         } else {
                             Toast.makeText(Login.this, "Invalid Login",
                                     Toast.LENGTH_LONG).show();
+                            progress.setVisibility(View.GONE);
                         }
                     }
                 });
             }catch(Exception e){
                 Toast.makeText(Login.this, "Please enter your information",
                         Toast.LENGTH_LONG).show();
+                progress.setVisibility(View.GONE);
             }
         }
         if (i == R.id.createAccount){

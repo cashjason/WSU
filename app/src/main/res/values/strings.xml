@@ -4,4 +4,19 @@
     <string name="emailEntry">EMAIL</string>
     <string name="passEntry">PASSWORD</string>
     <string name="pregame_evaluation">Pregame Evaluation</string>
+    <string name="a_amp_level">A = Amp Level</string>
+    <string name="d_dominate_this_moment">D = Dominate THIS Moment</string>
+    <string name="e_embrace_advirsity">E = Embrace Advirsity</string>
+    <string name="i_imagine_before_action">I = Imagine Before Action</string>
+    <string name="postgame_evaluation">Postgame Evaluation</string>
+    <string name="r_relaxation_level">R = Relaxation Level</string>
+    <string name="r_routines">R = Routines</string>
+    <string name="submit">Submit</string>
+    <string name="q1">q1</string>
+    <string name="q2">q2</string>
+    <string name="q3">q3</string>
+    <string name="q4">q4</string>
+    <string name="q5">q5</string>
+    <string name="q6">q6</string>
+    <string name="string_q6" />
 </resources>

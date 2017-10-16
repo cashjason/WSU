@@ -26,8 +26,12 @@
     </style>
 
     <style name="SeekStyle" parent="@android:style/Widget.SeekBar">
-        <item name="android:background">@drawable/whitenums</item>
+        <item name="android:background">@drawable/seek_back</item>
         <item name="android:thumb">@drawable/thumbdraw</item>
         <item name="android:progressDrawable">@drawable/progressdraw</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:layout_margin">10dp</item>
+
     </style>
 </resources>

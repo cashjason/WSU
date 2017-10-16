@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +26,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
     EditText email;
     EditText emailVerify;
     EditText password;
+    ProgressBar progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,8 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
         emailVerify = (EditText) findViewById(R.id.emailVerify);
         password = (EditText) findViewById(R.id.passEntry);
         mAuth = FirebaseAuth.getInstance();
+        progress = (ProgressBar) findViewById(R.id.progress);
+        progress.setVisibility(View.GONE);
     }
 
     @Override
@@ -46,6 +50,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
             String em = email.getText().toString();
             String emv = emailVerify.getText().toString();
             String pass = password.getText().toString();
+            progress.setVisibility(View.VISIBLE);
             if (em.equals(emv)){
                 try {
                     mAuth.createUserWithEmailAndPassword(em, pass)
@@ -55,19 +60,23 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                                     if (task.isSuccessful()) {
                                         Toast.makeText(CreateAccount.this, "Account Created",
                                                 Toast.LENGTH_SHORT).show();
+                                        progress.setVisibility(View.GONE);
                                     }else{
                                         Toast.makeText(CreateAccount.this, "Account Not Created",
                                                 Toast.LENGTH_SHORT).show();
+                                        progress.setVisibility(View.GONE);
                                     }
                                 }
                             });
                 }catch(Exception e){
                     Toast.makeText(CreateAccount.this, "Please enter your information",
                             Toast.LENGTH_LONG).show();
+                    progress.setVisibility(View.GONE);
                 }
             }else{
                 Toast.makeText(CreateAccount.this, "Emails do not match",
                         Toast.LENGTH_LONG).show();
+                progress.setVisibility(View.GONE);
             }
 
         }

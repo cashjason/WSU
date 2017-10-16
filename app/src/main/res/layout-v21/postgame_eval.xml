@@ -12,7 +12,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +25,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Postgame Evaluation"
+                android:text="@string/postgame_evaluation"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -32,14 +33,14 @@
                 android:id="@+id/d1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="R = Relaxation Level" />
+                android:text="@string/r_relaxation_level" />
 
             <TextView
                 android:id="@+id/q1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q1" />
+                android:text="@string/q1" />
 
             <SeekBar
                 android:id="@+id/seekBar2"
@@ -49,20 +50,21 @@
                 android:layout_weight="3"
                 android:max="9"
                 android:progress="4"
-                android:visibility="visible" />
+                android:visibility="visible"
+                tools:ignore="InefficientWeight" />
 
             <TextView
                 android:id="@+id/d2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A = Amp Level" />
+                android:text="@string/a_amp_level" />
 
             <TextView
                 android:id="@+id/q2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q2" />
+                android:text="@string/q2" />
 
             <SeekBar
                 android:id="@+id/seekBar6"
@@ -76,14 +78,14 @@
                 android:id="@+id/d3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="I = Imagine Before Action" />
+                android:text="@string/i_imagine_before_action" />
 
             <TextView
                 android:id="@+id/q3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q3" />
+                android:text="@string/q3" />
 
             <SeekBar
                 android:id="@+id/seekBar4"
@@ -97,14 +99,14 @@
                 android:id="@+id/d4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="D = Dominate THIS Moment" />
+                android:text="@string/d_dominate_this_moment" />
 
             <TextView
                 android:id="@+id/q4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q4" />
+                android:text="@string/q4" />
 
             <SeekBar
                 android:id="@+id/seekBar3"
@@ -118,14 +120,14 @@
                 android:id="@+id/d5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="E = Embrace Advirsity" />
+                android:text="@string/e_embrace_advirsity" />
 
             <TextView
                 android:id="@+id/q5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q5" />
+                android:text="@string/q5" />
 
             <SeekBar
                 android:id="@+id/seekBar"
@@ -140,14 +142,14 @@
                 android:id="@+id/d6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="R = Routines" />
+                android:text="@string/r_routines" />
 
             <TextView
                 android:id="@+id/q6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q6" />
+                android:text="@string/string_q6" />
 
             <SeekBar
                 android:id="@+id/seekBar5"
@@ -162,7 +164,7 @@
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit" />
+                android:text="@string/submit" />
 
         </LinearLayout>
     </ScrollView>
