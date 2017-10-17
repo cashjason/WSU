@@ -8,144 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:56276827106:android:87b93e50975bc9d3",
-        "android_client_info": {
-          "package_name": "com.baseball.wsu.diamyn"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "56276827106-hq5liplejnndgnro8p6h2322vuocd076.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.baseball.wsu.diamyn",
-            "certificate_hash": "20e4b2966fa6b22c219c4da2a2fba564b579b8c7"
-          }
-        },
-        {
-          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:56276827106:android:3801cc68fd588f45",
-        "android_client_info": {
-          "package_name": "com.wsubaseball.ashish.wsubaseball"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "56276827106-ec1ve4m0h05aongdjb61gqefv9cq35eo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.wsubaseball.ashish.wsubaseball",
-            "certificate_hash": "42915ca68a939f46ac04076594296a2df2fa8cfd"
-          }
-        },
-        {
-          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:56276827106:android:40ef50b0493d430c",
-        "android_client_info": {
-          "package_name": "com.example.cashj.diamyn"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "56276827106-1h33960sspn9c787dv5s03e4a909t5qo.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.cashj.diamyn",
-            "certificate_hash": "20e4b2966fa6b22c219c4da2a2fba564b579b8c7"
-          }
-        },
-        {
-          "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDg-PfhWJE_kumqTXBeArSDPFewb2iRQyg"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "56276827106-cjr78grts70r8ba7odcalpvv1kkqumks.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:56276827106:android:4bee7aaa3b2e2394",
         "android_client_info": {
           "package_name": "com.example.cashj.wsu"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "56276827106-2frsv0h8jksand977ql1ql5gpcmtbd9q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cashj.wsu",
+            "certificate_hash": "37f4f3ac8e362b2819ebca477d45f554d2b94f6b"
+          }
+        },
         {
           "client_id": "56276827106-sd62ad8bodrerfvuojfbti66sdrft2ng.apps.googleusercontent.com",
           "client_type": 1,
