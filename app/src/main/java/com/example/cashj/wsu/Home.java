@@ -54,6 +54,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         Button signOutBtn = (Button) findViewById(R.id.signOut);
         signOutBtn.setOnClickListener(this);
 
+        Button profBtn = (Button) findViewById(R.id.profileBtn);
+        profBtn.setOnClickListener(this);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
@@ -123,6 +126,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         }
         if (i == R.id.historybtn) {
             Intent act = new Intent(getApplicationContext(), History.class);
+            startActivity(act);
+        }
+        if (i == R.id.profileBtn) {
+            Intent act = new Intent(getApplicationContext(), Profile.class);
             startActivity(act);
         }
         if (i == R.id.signOut) {

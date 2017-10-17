@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Diamyn Performance</string>
+    <string name="app_name">Diamyn</string>
     <string name="loginBtn">LOGIN</string>
     <string name="emailEntry">EMAIL</string>
     <string name="passEntry">PASSWORD</string>
@@ -19,4 +19,17 @@
     <string name="q5">q5</string>
     <string name="q6">q6</string>
     <string name="string_q6" />
+    <string-array name="team_arrays">
+        <item>WSU</item>
+    </string-array>
+    <string-array name="year_arrays">
+        <item>Freshman</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </string-array>
+    <string-array name="position_arrays">
+        <item>Pitcher</item>
+        <item>Hitter</item>
+    </string-array>
 </resources>

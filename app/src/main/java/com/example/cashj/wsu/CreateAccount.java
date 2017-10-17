@@ -27,6 +27,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
     EditText emailVerify;
     EditText password;
     ProgressBar progress;
+    String em, emv, pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +48,9 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.createAccount) {
-            String em = email.getText().toString();
-            String emv = emailVerify.getText().toString();
-            String pass = password.getText().toString();
+            em = email.getText().toString();
+            emv = emailVerify.getText().toString();
+            pass = password.getText().toString();
             progress.setVisibility(View.VISIBLE);
             if (em.equals(emv)){
                 try {
@@ -61,6 +62,7 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                                         Toast.makeText(CreateAccount.this, "Account Created",
                                                 Toast.LENGTH_SHORT).show();
                                         progress.setVisibility(View.GONE);
+                                        login();
                                     }else{
                                         Toast.makeText(CreateAccount.this, "Account Not Created",
                                                 Toast.LENGTH_SHORT).show();
@@ -79,6 +81,30 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                 progress.setVisibility(View.GONE);
             }
 
+        }
+    }
+    public void login(){
+        progress.setVisibility(View.VISIBLE);
+        try {
+            mAuth.signInWithEmailAndPassword(em, pass)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                progress.setVisibility(View.GONE);
+                                Intent prof = new Intent(getApplicationContext(), Profile.class);
+                                startActivity(prof);
+                            } else {
+                                Toast.makeText(CreateAccount.this, "Invalid Login",
+                                        Toast.LENGTH_LONG).show();
+                                progress.setVisibility(View.GONE);
+                            }
+                        }
+                    });
+        }catch(Exception e){
+            Toast.makeText(CreateAccount.this, "Please enter your information",
+                    Toast.LENGTH_LONG).show();
+            progress.setVisibility(View.GONE);
         }
     }
 }

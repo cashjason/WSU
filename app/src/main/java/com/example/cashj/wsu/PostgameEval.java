@@ -20,6 +20,7 @@ public class PostgameEval extends AppCompatActivity {
     /** Write to database
      * Created by Aaron on 10/1/17
      */
+    //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
     @Override

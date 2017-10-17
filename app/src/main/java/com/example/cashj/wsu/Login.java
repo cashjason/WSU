@@ -1,6 +1,5 @@
 package com.example.cashj.wsu;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -23,7 +22,6 @@ import com.google.firebase.auth.GetTokenResult;
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
     ProgressBar progress;
     EditText email;
     EditText password;
