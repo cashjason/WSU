@@ -59,7 +59,7 @@
                 android:text="q1" />
 
             <SeekBar
-                android:id="@+id/seekBar2"
+                android:id="@+id/Rseek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -82,7 +82,7 @@
                 android:text="q2" />
 
             <SeekBar
-                android:id="@+id/seekBar6"
+                android:id="@+id/Aseek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -103,7 +103,7 @@
                 android:text="q3" />
 
             <SeekBar
-                android:id="@+id/seekBar4"
+                android:id="@+id/Iseek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -121,10 +121,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="q4" />
+                android:text="q4"
+                android:layout_weight="2.01" />
 
             <SeekBar
-                android:id="@+id/seekBar3"
+                android:id="@+id/Dseek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -145,7 +146,7 @@
                 android:text="q5" />
 
             <SeekBar
-                android:id="@+id/seekBar"
+                android:id="@+id/Eseek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -167,7 +168,7 @@
                 android:text="q6" />
 
             <SeekBar
-                android:id="@+id/seekBar5"
+                android:id="@+id/R2seek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
