@@ -93,6 +93,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 }
             }
 
+            Intent home = new Intent(getApplicationContext(), Home.class);
+            startActivity(home);
         }
     }
 }

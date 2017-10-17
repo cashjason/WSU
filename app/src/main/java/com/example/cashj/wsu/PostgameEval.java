@@ -33,6 +33,19 @@ public class PostgameEval extends AppCompatActivity {
 
     String ID;
     String PostGameEval;
+    TextView q1;
+    TextView q2;
+    TextView q3;
+    TextView q4;
+    TextView q5;
+    TextView q6;
+
+    SeekBar Rseek;
+    SeekBar Aseek;
+    SeekBar Iseek;
+    SeekBar Dseek;
+    SeekBar Eseek;
+    SeekBar R2seek;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,19 +63,19 @@ public class PostgameEval extends AppCompatActivity {
         simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
         Date = simpleDateFormat.format(calendar.getTime());
 
-        final TextView q1 = (TextView) findViewById(R.id.q1);
-        final TextView q2 = (TextView) findViewById(R.id.q2);
-        final TextView q3 = (TextView) findViewById(R.id.q3);
-        final TextView q4 = (TextView) findViewById(R.id.q4);
-        final TextView q5 = (TextView) findViewById(R.id.q5);
-        final TextView q6 = (TextView) findViewById(R.id.q6);
+        q1 = (TextView) findViewById(R.id.q1);
+        q2 = (TextView) findViewById(R.id.q2);
+        q3 = (TextView) findViewById(R.id.q3);
+        q4 = (TextView) findViewById(R.id.q4);
+        q5 = (TextView) findViewById(R.id.q5);
+        q6 = (TextView) findViewById(R.id.q6);
 
-        final SeekBar Rseek = (SeekBar) findViewById(R.id.Rseek);
-        final SeekBar Aseek = (SeekBar) findViewById(R.id.Aseek);
-        final SeekBar Iseek = (SeekBar) findViewById(R.id.Iseek);
-        final SeekBar Dseek = (SeekBar) findViewById(R.id.Dseek);
-        final SeekBar Eseek = (SeekBar) findViewById(R.id.Eseek);
-        final SeekBar R2seek = (SeekBar) findViewById(R.id.R2seek);
+        Rseek = (SeekBar) findViewById(R.id.Rseek);
+        Aseek = (SeekBar) findViewById(R.id.Aseek);
+        Iseek = (SeekBar) findViewById(R.id.Iseek);
+        Dseek = (SeekBar) findViewById(R.id.Dseek);
+        Eseek = (SeekBar) findViewById(R.id.Eseek);
+        R2seek = (SeekBar) findViewById(R.id.R2seek);
 
         PostGameEval = "PostGameEval";
 
@@ -171,25 +184,26 @@ public class PostgameEval extends AppCompatActivity {
 
 
                 myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q1A").setValue(Rseek.getProgress());
+                        .child(Date).child("q1A").setValue(Rseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q2A").setValue(Aseek.getProgress());
+                        .child(Date).child("q2A").setValue(Aseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q3A").setValue(Iseek.getProgress());
+                        .child(Date).child("q3A").setValue(Iseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q4A").setValue(Dseek.getProgress());
+                        .child(Date).child("q4A").setValue(Dseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q5A").setValue(Eseek.getProgress());
+                        .child(Date).child("q5A").setValue(Eseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q6A").setValue(R2seek.getProgress());
+                        .child(Date).child("q6A").setValue(R2seek.getProgress()+1);
 
 
-
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                startActivity(home);
             }
         });
 

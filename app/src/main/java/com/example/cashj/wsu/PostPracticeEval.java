@@ -1,5 +1,6 @@
 package com.example.cashj.wsu;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -169,25 +170,26 @@ public class PostPracticeEval extends AppCompatActivity {
 
 
                 myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q1A").setValue(Rseek.getProgress());
+                        .child(Date).child("q1A").setValue(Rseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q2A").setValue(Aseek.getProgress());
+                        .child(Date).child("q2A").setValue(Aseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q3A").setValue(Iseek.getProgress());
+                        .child(Date).child("q3A").setValue(Iseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q4A").setValue(Dseek.getProgress());
+                        .child(Date).child("q4A").setValue(Dseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q5A").setValue(Eseek.getProgress());
+                        .child(Date).child("q5A").setValue(Eseek.getProgress()+1);
 
                 myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q6A").setValue(R2seek.getProgress());
+                        .child(Date).child("q6A").setValue(R2seek.getProgress()+1);
 
 
-
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                startActivity(home);
             }
         });
 

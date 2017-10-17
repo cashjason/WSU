@@ -20,6 +20,7 @@ public class Values {
     }
 
     public void setName(String name) {
+        //Set name in db
         this.name = name;
     }
 
