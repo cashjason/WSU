@@ -17,6 +17,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by cashj on 10/11/2017.
  */
@@ -55,7 +58,6 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         pTeam = (Spinner) findViewById(R.id.teamSpinner);
         pTeam = (Spinner) findViewById(R.id.teamSpinner);
         //set all values to local variables then compare with the database to change if necessary
-
     }
 
     @Override
@@ -69,7 +71,27 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             v.setPhone(pPhone.getText().toString());
             v.setHeight(pHeight.getText().toString());
             v.setWeight(pWeight.getText().toString());
-           // v.setTeam(pTeam.
+            String temp = v.getTeam();
+            String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
+            for(int j = 0; j >  pTeamArr.length; j++){
+                if(temp.equals(pTeamArr[j])){
+                    pTeam.setSelection(j);
+                }
+            }
+            temp = v.getYear();
+            String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
+            for(int j = 0; j >  pYearArr.length; j++){
+                if(temp.equals(pYearArr[j])){
+                    pTeam.setSelection(j);
+                }
+            }
+            temp = v.getPosition();
+            String[] pPosArr = getResources().getStringArray(R.array.position_arrays);
+            for(int j = 0; j >  pPosArr.length; j++){
+                if(temp.equals(pPosArr[j])){
+                    pTeam.setSelection(j);
+                }
+            }
 
         }
     }
