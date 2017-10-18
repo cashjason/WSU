@@ -25,24 +25,21 @@ public class Values {
     String Date;
     String ID;
 
+    //get name from db
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    // Get instance of database
+    final FirebaseDatabase database = FirebaseDatabase.getInstance();
+    // Get reference to database
+    final DatabaseReference myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
+
+
     public String getName() {
-        //get name from db
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
-        // Get instance of database
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-        // Get reference to database
-        final DatabaseReference myRef = database
-                .getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
-
         database.getReference("users/"+ID+"/Player Information/Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 name = dataSnapshot.getValue(String.class);
-
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -55,14 +52,7 @@ public class Values {
         //Set name in db
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
-        // Get instance of database
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        // Get reference to database
-        final DatabaseReference myRef = database
-                .getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
-        name = myRef.child("users").child(ID).child("Player Information").child("Name").toString();
-
-        this.name = n;
+        myRef.child("users").child(ID).child("PlayerInformation").child("Name").setValue(n.toString());
     }
 
     public String getNumber() {
