@@ -1,5 +1,13 @@
 package com.example.cashj.wsu;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 /**
  * Created by cashj on 10/16/2017.
  */
@@ -13,15 +21,48 @@ public class Values {
     private String position;
     private String Height;
     private String Weight;
+    // Modified by Aaron 10/17/2017
+    String Date;
+    String ID;
 
     public String getName() {
         //get name from db
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        // Get instance of database
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        // Get reference to database
+        final DatabaseReference myRef = database
+                .getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
+
+        database.getReference("users/"+ID+"/Player Information/Name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                name = dataSnapshot.getValue(String.class);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String n) {
         //Set name in db
-        this.name = name;
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        // Get instance of database
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        // Get reference to database
+        final DatabaseReference myRef = database
+                .getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
+        name = myRef.child("users").child(ID).child("Player Information").child("Name").toString();
+
+        this.name = n;
     }
 
     public String getNumber() {
