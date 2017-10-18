@@ -32,13 +32,14 @@ public class Values {
     // Get reference to database
     final DatabaseReference myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
-
+// users  "users/"+ID+"/Player Information/Name"
     public String getName() {
         ID =  user.getUid();
-        database.getReference("users/"+ID+"/Player Information/Name").addValueEventListener(new ValueEventListener() {
+        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                name = dataSnapshot.getValue(String.class);
+                String name = dataSnapshot.getValue(String.class);
+                System.out.println(name + "++++++++++++++++++++++++++++++++");
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -56,58 +57,164 @@ public class Values {
     }
 
     public String getNumber() {
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/PlayerInformation/Number").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                number = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return number;
     }
 
     public void setNumber(String number) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Number").setValue(number.toString());
+
         this.number = number;
     }
 
     public String getPhone() {
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/PlayerInformation/Phone").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                phone = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return phone;
     }
 
     public void setPhone(String phone) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Phone").setValue(phone.toString());
         this.phone = phone;
     }
 
     public String getTeam() {
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/PlayerInformation/Team").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                team = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return team;
     }
 
     public void setTeam(String team) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Team").setValue(team.toString());
+
         this.team = team;
     }
 
     public String getYear() {
+
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/PlayerInformation/Year").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                year = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return year;
     }
 
     public void setYear(String year) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Year").setValue(year.toString());
+
         this.year = year;
     }
 
     public String getPosition() {
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/Player Information/Position").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                position = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return position;
     }
 
     public void setPosition(String position) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Position").setValue(position.toString());
+
         this.position = position;
     }
 
     public String getHeight() {
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/PlayerInformation/Height").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Height = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         return Height;
     }
 
     public void setHeight(String height) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Height").setValue(height.toString());
+
         Height = height;
     }
 
     public String getWeight() {
+        ID =  user.getUid();
+        database.getReference("users/"+ID+"/PlayerInformation/Weight").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Weight = dataSnapshot.getValue(String.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return Weight;
     }
 
     public void setWeight(String weight) {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        myRef.child("users").child(ID).child("PlayerInformation").child("Weight").setValue(weight.toString());
+
         Weight = weight;
     }
 }

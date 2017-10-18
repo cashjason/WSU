@@ -9,6 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.jar.Attributes;
+
 
 /**
  * Created by cashj on 10/11/2017.
@@ -35,18 +44,37 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         done.setOnClickListener(this);
 
         pName = (EditText) findViewById(R.id.profName);
+        /**String ID;
+
+        //get name from db
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pName.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+**/
         pName.setText(v.getName());
         pNum = (EditText) findViewById(R.id.profNum);
         pNum.setText(v.getNumber());
         pPhone = (EditText) findViewById(R.id.profPhone);
         pPhone.setText(v.getPhone());
-        pHeight = (EditText) findViewById(R.id.profPhone);
+        pHeight = (EditText) findViewById(R.id.profHeight);
         pHeight.setText(v.getHeight());
-        pWeight = (EditText) findViewById(R.id.profPhone);
+        pWeight = (EditText) findViewById(R.id.profWeight);
         pWeight.setText(v.getWeight());
         pTeam = (Spinner) findViewById(R.id.teamSpinner);
-        pYear = (Spinner) findViewById(R.id.teamSpinner);
-        pPosition = (Spinner) findViewById(R.id.teamSpinner);
+        pYear = (Spinner) findViewById(R.id.yearSpinner);
+        pPosition = (Spinner) findViewById(R.id.positionSpinner);
         String temp = v.getTeam();
         String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
         for(int j = 0; j >  pTeamArr.length; j++){
