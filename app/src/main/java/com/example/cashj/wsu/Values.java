@@ -24,7 +24,6 @@ public class Values {
     // Modified by Aaron 10/17/2017
     String Date;
     String ID;
-
     //get name from db
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     // Get instance of database
@@ -32,20 +31,36 @@ public class Values {
     // Get reference to database
     final DatabaseReference myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
-// users  "users/"+ID+"/Player Information/Name"
-    public String getName() {
-        ID =  user.getUid();
+    Values(){
+        name = getName();
+        System.out.println(name + "Constructor is +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.getValue(String.class);
-                System.out.println(name + "++++++++++++++++++++++++++++++++");
+                name = dataSnapshot.getValue(String.class);
+//                System.out.println(name + "Constructor is +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             }
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(DatabaseError databaseError) {}
 
-            }
         });
+    }
+
+// users  "users/"+ID+"/Player Information/Name"
+
+    public String getName() {
+
+        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                name = dataSnapshot.getValue(String.class);
+                System.out.println(name + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+
+        });
+        System.out.println(name + " is Return name++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         return name;
     }
 

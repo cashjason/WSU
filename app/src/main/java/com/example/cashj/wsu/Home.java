@@ -9,7 +9,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -36,9 +38,11 @@ import static com.example.cashj.wsu.R.id.imageView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
 
-    private FirebaseAuth mAuth;
-    private StorageReference mStorageRef;
-    private DatabaseReference mDatabase;
+    TextView pName;
+    TextView pInfo;
+    TextView pNumber;
+    TextView pPosition;
+    TextView pYear;
     ImageView profilePic;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,7 +61,66 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         Button profBtn = (Button) findViewById(R.id.profileBtn);
         profBtn.setOnClickListener(this);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        String ID;
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        ID =  user.getUid();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        pName = (TextView) findViewById(R.id.pName);
+        pInfo = (TextView) findViewById(R.id.pInfo);
+        pNumber = (TextView) findViewById(R.id.pNumber);
+        pPosition = (TextView) findViewById(R.id.pPosition);
+        pYear = (TextView) findViewById(R.id.pYear);
+        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pName.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+//        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                String value = dataSnapshot.getValue(String.class);
+//                pInfo.setText(value);
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+        database.getReference("users/"+ID+"/PlayerInformation/Number").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pNumber.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Position").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pPosition.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Year").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pYear.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
 
 // THIS IS HOW AN UPLOADED IMAGE CAN BE DISPLAYED

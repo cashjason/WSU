@@ -25,6 +25,7 @@ import java.util.jar.Attributes;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     Button done;
+
     EditText pName;
     EditText pNum;
     EditText pPhone;
@@ -38,64 +39,146 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        Values v = new Values();
+        //Values v = new Values();
 
         done = (Button) findViewById(R.id.doneBtn);
         done.setOnClickListener(this);
 
         pName = (EditText) findViewById(R.id.profName);
-        /**String ID;
+        pNum = (EditText) findViewById(R.id.profNum);
+        pPhone = (EditText) findViewById(R.id.profPhone);
+        pHeight = (EditText) findViewById(R.id.profHeight);
+        pWeight = (EditText) findViewById(R.id.profWeight);
+        pTeam = (Spinner) findViewById(R.id.teamSpinner);
+        pYear = (Spinner) findViewById(R.id.yearSpinner);
+        pPosition = (Spinner) findViewById(R.id.positionSpinner);
 
-        //get name from db
+        String ID;
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
+
         database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 pName.setText(value);
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
-**/
-        pName.setText(v.getName());
-        pNum = (EditText) findViewById(R.id.profNum);
-        pNum.setText(v.getNumber());
-        pPhone = (EditText) findViewById(R.id.profPhone);
-        pPhone.setText(v.getPhone());
-        pHeight = (EditText) findViewById(R.id.profHeight);
-        pHeight.setText(v.getHeight());
-        pWeight = (EditText) findViewById(R.id.profWeight);
-        pWeight.setText(v.getWeight());
-        pTeam = (Spinner) findViewById(R.id.teamSpinner);
-        pYear = (Spinner) findViewById(R.id.yearSpinner);
-        pPosition = (Spinner) findViewById(R.id.positionSpinner);
-        String temp = v.getTeam();
-        String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
-        for(int j = 0; j >  pTeamArr.length; j++){
-            if(temp.equals(pTeamArr[j])){
-                pTeam.setSelection(j);
+        database.getReference("users/"+ID+"/PlayerInformation/Number").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pNum.setText(value);
             }
-        }
-        temp = v.getYear();
-        String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
-        for(int j = 0; j >  pYearArr.length; j++){
-            if(temp.equals(pYearArr[j])){
-                pYear.setSelection(j);
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
             }
-        }
-        temp = v.getPosition();
-        String[] pPosArr = getResources().getStringArray(R.array.position_arrays);
-        for(int j = 0; j >  pPosArr.length; j++){
-            if(temp.equals(pPosArr[j])){
-                pYear.setSelection(j);
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Phone").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pPhone.setText(value);
             }
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Height").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pHeight.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Weight").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pWeight.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Team").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
+                for(int j = 0; j <  pTeamArr.length; j++){
+                    if(value.equals(pTeamArr[j])){
+                        pTeam.setSelection(j);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Year").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
+                System.out.println(pYearArr.length + "Is the Array Length &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+                for(int j = 0; j <  pYearArr.length; j++){
+                    System.out.println(pYearArr[j] + " Should be the same as " + value + "******************************************************************************");
+                    if(value.equals(pYearArr[j])){
+                        pYear.setSelection(j);
+                        System.out.println("The Values Are the same for year !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        database.getReference("users/"+ID+"/PlayerInformation/Position").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                String[] pPosArr = getResources().getStringArray(R.array.position_arrays);
+                for(int j = 0; j <  pPosArr.length; j++){
+                    if(value.equals(pPosArr[j])){
+                        pPosition.setSelection(j);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
+//        String temp = v.getTeam();
+//        String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
+//        for(int j = 0; j >  pTeamArr.length; j++){
+//            if(temp.equals(pTeamArr[j])){
+//                pTeam.setSelection(j);
+//            }
+//        }
+//        temp = v.getYear();
+//        String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
+//        for(int j = 0; j >  pYearArr.length; j++){
+//            if(temp.equals(pYearArr[j])){
+//                pYear.setSelection(j);
+//            }
+//        }
+//        temp = v.getPosition();
+//        String[] pPosArr = getResources().getStringArray(R.array.position_arrays);
+//        for(int j = 0; j >  pPosArr.length; j++){
+//            if(temp.equals(pPosArr[j])){
+//                pYear.setSelection(j);
+//            }
+//        }
         //set all values to local variables then compare with the database to change if necessary
     }
 

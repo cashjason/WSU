@@ -42,6 +42,7 @@
                 android:id="@+id/profName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:ems="10"
                 android:inputType="textPersonName" />
 
@@ -55,6 +56,7 @@
                 android:id="@+id/profNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:ems="10"
                 android:inputType="number" />
 
@@ -68,6 +70,7 @@
                 android:id="@+id/profPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:ems="10"
                 android:inputType="phone" />
 
@@ -83,7 +86,6 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="textEnd"
                 android:entries="@array/team_arrays"/>
-
 
             <TextView
                 android:id="@+id/textView8"
@@ -121,6 +123,7 @@
                 android:id="@+id/profHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:ems="10"
                 android:inputType="number" />
 
@@ -134,8 +137,17 @@
                 android:id="@+id/profWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
                 android:ems="10"
                 android:inputType="number" />
+
+            <Button
+                android:id="@+id/picBtn"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Picture"
+                android:padding="10dp" />
 
             <Button
                 android:id="@+id/doneBtn"
