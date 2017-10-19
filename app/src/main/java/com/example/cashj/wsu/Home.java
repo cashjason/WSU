@@ -81,16 +81,16 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-//        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                String value = dataSnapshot.getValue(String.class);
-//                pInfo.setText(value);
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
+        database.getReference("users/"+ID+"/PlayerInformation/Phone").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                pInfo.setText(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
         database.getReference("users/"+ID+"/PlayerInformation/Number").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
