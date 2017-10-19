@@ -27,4 +27,25 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/PostBullpenBtn"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Bullpen" />
+
+    <Button
+        android:id="@+id/PostPracticeEvalBtn"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Practice" />
+
+    <Button
+        android:id="@+id/PostGameEvalBtn"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Game" />
 </LinearLayout>
