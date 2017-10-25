@@ -38,12 +38,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
-
-        //Values v = new Values();
-
         done = (Button) findViewById(R.id.doneBtn);
         done.setOnClickListener(this);
-
         pName = (EditText) findViewById(R.id.profName);
         pNum = (EditText) findViewById(R.id.profNum);
         pPhone = (EditText) findViewById(R.id.profPhone);
@@ -128,12 +124,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
-                System.out.println(pYearArr.length + "Is the Array Length &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
                 for(int j = 0; j <  pYearArr.length; j++){
-                    System.out.println(pYearArr[j] + " Should be the same as " + value + "******************************************************************************");
                     if(value.equals(pYearArr[j])){
                         pYear.setSelection(j);
-                        System.out.println("The Values Are the same for year !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                     }
                 }
             }
@@ -156,30 +149,6 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-
-//        String temp = v.getTeam();
-//        String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
-//        for(int j = 0; j >  pTeamArr.length; j++){
-//            if(temp.equals(pTeamArr[j])){
-//                pTeam.setSelection(j);
-//            }
-//        }
-//        temp = v.getYear();
-//        String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
-//        for(int j = 0; j >  pYearArr.length; j++){
-//            if(temp.equals(pYearArr[j])){
-//                pYear.setSelection(j);
-//            }
-//        }
-//        temp = v.getPosition();
-//        String[] pPosArr = getResources().getStringArray(R.array.position_arrays);
-//        for(int j = 0; j >  pPosArr.length; j++){
-//            if(temp.equals(pPosArr[j])){
-//                pYear.setSelection(j);
-//            }
-//        }
-        //set all values to local variables then compare with the database to change if necessary
     }
 
     @Override

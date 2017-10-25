@@ -156,31 +156,6 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        //Update fields with info from the database
-        // Read from the database
-
-//        mDatabase.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                String value = dataSnapshot.getValue(String.class);
-//                //Toast.makeText(Home.this, "" + value, Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//
-//            }
-//        });
-
-    }
-
-    @Override
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.evaluationsBtn) {

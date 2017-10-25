@@ -23,29 +23,63 @@
 
     </LinearLayout>
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/PostBullpenBtn"
-        style="@style/ButtonStyle"
+    <TextView
+        android:id="@+id/monthTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Post Bullpen" />
+        android:text="Month"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"/>
 
-    <Button
-        android:id="@+id/PostPracticeEvalBtn"
-        style="@style/ButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Practice" />
+    <com.github.sundeepk.compactcalendarview.CompactCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/compactcalendar_view"
+        android:layout_width="fill_parent"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_margin="10dp"
+        android:layout_height="250dp"
+        app:compactCalendarTargetHeight="250dp"
+        app:compactCalendarTextSize="12sp"
+        app:compactCalendarBackgroundColor="#0060aa10"
+        app:compactCalendarTextColor="#fff"
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#41ae76"
+        app:compactCalendarCurrentDayBackgroundColor="#606060"
+        app:compactCalendarMultiEventIndicatorColor="#fff"
+        />
 
-    <Button
-        android:id="@+id/PostGameEvalBtn"
-        style="@style/ButtonStyle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post Game" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/PostGameEvalBtn"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Game"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/PostPracticeEvalBtn"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Practice" />
+
+            <Button
+                android:id="@+id/PostBullpenBtn"
+                style="@style/ButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Bullpen" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
