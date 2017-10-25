@@ -16,10 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * Created by cashj on 9/20/2017.
- */
-
 public class CreateAccount extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
@@ -28,14 +24,14 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
     EditText password;
     ProgressBar progress;
     String em, emv, pass;
+    Button create;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
 
-        Button create = (Button) findViewById(R.id.createAccount);
+        create = (Button) findViewById(R.id.createAccount);
         create.setOnClickListener(this);
-
         email = (EditText) findViewById(R.id.emailEntry);
         emailVerify = (EditText) findViewById(R.id.emailVerify);
         password = (EditText) findViewById(R.id.passEntry);
@@ -80,7 +76,6 @@ public class CreateAccount extends AppCompatActivity implements View.OnClickList
                         Toast.LENGTH_LONG).show();
                 progress.setVisibility(View.GONE);
             }
-
         }
     }
     public void login(){

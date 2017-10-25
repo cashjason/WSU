@@ -13,12 +13,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * Created by cashj on 9/25/2017.
- */
-
 public class ForgotPassword extends AppCompatActivity implements View.OnClickListener {
 
+    FirebaseAuth auth;
     Button verify;
     EditText email;
 
@@ -30,17 +27,13 @@ public class ForgotPassword extends AppCompatActivity implements View.OnClickLis
         email = (EditText) findViewById(R.id.emailVerifyEntry);
         verify = (Button) findViewById(R.id.verifyButton);
         verify.setOnClickListener(this);
-
-
     }
 
     @Override
     public void onClick(View v) {
         //Send verification email
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String emailAddress = email.getText().toString();
-
-        auth.sendPasswordResetEmail(emailAddress)
+        auth = FirebaseAuth.getInstance();
+        auth.sendPasswordResetEmail(email.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

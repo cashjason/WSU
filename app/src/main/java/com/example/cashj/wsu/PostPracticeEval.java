@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -20,58 +21,47 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- * Created by cashj on 9/15/2017.
- */
-
-public class PostPracticeEval extends AppCompatActivity {
-
-    /**
-     * Created by Aaron Madaris 10/17/2017
-     */
+public class PostPracticeEval extends AppCompatActivity implements View.OnClickListener {
 
     String ID;
+    TextView q1, q2, q3, q4, q5,q6;
+    EditText notesText;
+    SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek;
+    Button submit;
+    String Date;
+    FirebaseUser user;
+    Calendar calendar;
+    SimpleDateFormat simpleDateFormat;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.postpractice);
 
-
-        // To find the specific user and place data in the right branch of data frame
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
-
-        Calendar calendar;
-        SimpleDateFormat simpleDateFormat;
-        final String Date;
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
         Date = simpleDateFormat.format(calendar.getTime());
-
-        final TextView q1 = (TextView) findViewById(R.id.q1);
-        final TextView q2 = (TextView) findViewById(R.id.q2);
-        final TextView q3 = (TextView) findViewById(R.id.q3);
-        final TextView q4 = (TextView) findViewById(R.id.q4);
-        final TextView q5 = (TextView) findViewById(R.id.q5);
-        final TextView q6 = (TextView) findViewById(R.id.q6);
-
-        final SeekBar Rseek = (SeekBar) findViewById(R.id.Rseek);
-        final SeekBar Aseek = (SeekBar) findViewById(R.id.Aseek);
-        final SeekBar Iseek = (SeekBar) findViewById(R.id.Iseek);
-        final SeekBar Dseek = (SeekBar) findViewById(R.id.Dseek);
-        final SeekBar Eseek = (SeekBar) findViewById(R.id.Eseek);
-        final SeekBar R2seek = (SeekBar) findViewById(R.id.R2seek);
-
-
-
-        // Get instance of database
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-        // Get reference to database
-        final DatabaseReference myRef = database
-                .getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
-
+        q1 = (TextView) findViewById(R.id.q1);
+        q2 = (TextView) findViewById(R.id.q2);
+        q3 = (TextView) findViewById(R.id.q3);
+        q4 = (TextView) findViewById(R.id.q4);
+        q5 = (TextView) findViewById(R.id.q5);
+        q6 = (TextView) findViewById(R.id.q6);
+        notesText = (EditText) findViewById(R.id.notesText);
+        rSeek = (SeekBar) findViewById(R.id.Rseek);
+        aSeek = (SeekBar) findViewById(R.id.Aseek);
+        iSeek = (SeekBar) findViewById(R.id.Iseek);
+        dSeek = (SeekBar) findViewById(R.id.Dseek);
+        eSeek = (SeekBar) findViewById(R.id.Eseek);
+        r2Seek = (SeekBar) findViewById(R.id.R2seek);
+        submit = (Button) findViewById(R.id.submitBtn);
+        submit.setOnClickListener(this);
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
         database.getReference("q/q1").addValueEventListener(new ValueEventListener() {
             @Override
@@ -146,54 +136,32 @@ public class PostPracticeEval extends AppCompatActivity {
 
             }
         });
-        /**
-         database.getReference("users/"+ID+"/PostGameEval").addValueEventListener(new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-        String value = dataSnapshot.getValue(String.class);
-        q6.setText(value);
-        }
+    }
 
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
+    @Override
+    public void onClick(View v) {
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("q1A").setValue(rSeek.getProgress()+1);
 
-        }
-        });
-         **/
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("q2A").setValue(aSeek.getProgress()+1);
 
-        // Send data to Firebase with Submit button
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("q3A").setValue(iSeek.getProgress()+1);
 
-        Button btnSendDataToServer = (Button) findViewById(R.id.submitBtn);
-        btnSendDataToServer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("q4A").setValue(dSeek.getProgress()+1);
 
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("q5A").setValue(eSeek.getProgress()+1);
 
-                myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q1A").setValue(Rseek.getProgress()+1);
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("q6A").setValue(r2Seek.getProgress()+1);
 
-                myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q2A").setValue(Aseek.getProgress()+1);
+        myRef.child("users").child(ID).child("PostPracticeEval")
+                .child(Date).child("notes").setValue(notesText.getText().toString());
 
-                myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q3A").setValue(Iseek.getProgress()+1);
-
-                myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q4A").setValue(Dseek.getProgress()+1);
-
-                myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q5A").setValue(Eseek.getProgress()+1);
-
-                myRef.child("users").child(ID).child("PostPracticeEval")
-                        .child(Date).child("q6A").setValue(R2seek.getProgress()+1);
-
-
-                Intent home = new Intent(getApplicationContext(), Home.class);
-                startActivity(home);
-            }
-        });
-
-
-
+        Intent home = new Intent(getApplicationContext(), Home.class);
+        startActivity(home);
     }
 }

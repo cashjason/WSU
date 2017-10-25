@@ -22,23 +22,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     ProgressBar progress;
-    EditText email;
-    EditText password;
-
+    EditText email, password;
+    Button login, create;
+    TextView forgotPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        Button loginBtn = (Button) findViewById(R.id.loginBtn);
-        loginBtn.setOnClickListener(this);
-
-        Button create = (Button) findViewById(R.id.createAccount);
+        login = (Button) findViewById(R.id.loginBtn);
+        login.setOnClickListener(this);
+        create = (Button) findViewById(R.id.createAccount);
         create.setOnClickListener(this);
-
-        TextView forgotPass = (TextView) findViewById(R.id.fPass);
+        forgotPass = (TextView) findViewById(R.id.fPass);
         forgotPass.setOnClickListener(this);
-
         email = (EditText) findViewById(R.id.emailEntry);
         password = (EditText) findViewById(R.id.passEntry);
         mAuth = FirebaseAuth.getInstance();

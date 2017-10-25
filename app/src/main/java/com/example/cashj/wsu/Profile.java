@@ -25,15 +25,12 @@ import java.util.jar.Attributes;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     Button done;
+    EditText pName, pNum, pPhone, pHeight, pWeight;
+    Spinner pTeam, pYear, pPosition;
+    String ID;
+    FirebaseUser user;
+    FirebaseDatabase database;
 
-    EditText pName;
-    EditText pNum;
-    EditText pPhone;
-    Spinner pTeam;
-    Spinner pYear;
-    Spinner pPosition;
-    EditText pHeight;
-    EditText pWeight;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +45,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         pTeam = (Spinner) findViewById(R.id.teamSpinner);
         pYear = (Spinner) findViewById(R.id.yearSpinner);
         pPosition = (Spinner) findViewById(R.id.positionSpinner);
-
-        String ID;
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        database = FirebaseDatabase.getInstance();
         ID =  user.getUid();
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
             @Override

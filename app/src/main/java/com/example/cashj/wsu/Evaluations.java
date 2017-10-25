@@ -16,30 +16,25 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-/**
- * Created by cashj on 10/11/2017.
- */
-
 public class Evaluations extends AppCompatActivity implements View.OnClickListener {
-
+    Button bullpenEval, gameEval, practiceEval;
+    String ID;
+    FirebaseUser user;
+    FirebaseDatabase database;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evaluations);
 
-        //Button bullPen = (Button) findViewById(R.id.evaluationsBtn);
-        //bullpen.setOnClickListener(this);
-        Button practiceEval = (Button) findViewById(R.id.postPreacticeEval);
+        practiceEval = (Button) findViewById(R.id.postPreacticeEval);
         practiceEval.setOnClickListener(this);
-        Button gameEval = (Button) findViewById(R.id.postGameEval);
+        gameEval = (Button) findViewById(R.id.postGameEval);
         gameEval.setOnClickListener(this);
-        final Button bullpenEval = (Button) findViewById(R.id.bullpenEval);
+        bullpenEval = (Button) findViewById(R.id.bullpenEval);
         bullpenEval.setOnClickListener(this);
-
-        String ID;
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         database.getReference("users/"+ID+"/PlayerInformation/Position").addValueEventListener(new ValueEventListener() {
             @Override
@@ -58,8 +53,9 @@ public class Evaluations extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         int i = v.getId();
+        //TODO: Create bullpenEval class, link to Evaluations.java
         //if (i == R.id.bullPen) {
-        //    Intent act = new Intent(getApplicationContext(), Evaluations.class);
+        //    Intent act = new Intent(getApplicationContext(), bullpenEval.class);
         //    startActivity(act);
         //}
         if (i == R.id.postPreacticeEval) {

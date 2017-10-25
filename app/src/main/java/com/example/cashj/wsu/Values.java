@@ -21,32 +21,15 @@ public class Values {
     private String position;
     private String Height;
     private String Weight;
-    // Modified by Aaron 10/17/2017
-    String Date;
     String ID;
-    //get name from db
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    // Get instance of database
     final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    // Get reference to database
     final DatabaseReference myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
-    Values(){
-        name = getName();
-        System.out.println(name + "Constructor is +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-        database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                name = dataSnapshot.getValue(String.class);
-//                System.out.println(name + "Constructor is +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
+    Values() {
 
-        });
+
     }
-
-// users  "users/"+ID+"/Player Information/Name"
 
     public String getName() {
 
@@ -54,13 +37,11 @@ public class Values {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 name = dataSnapshot.getValue(String.class);
-                System.out.println(name + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {}
 
         });
-        System.out.println(name + " is Return name++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
         return name;
     }
 

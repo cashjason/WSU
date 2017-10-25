@@ -38,39 +38,36 @@ import static com.example.cashj.wsu.R.id.imageView;
 
 public class Home extends AppCompatActivity implements View.OnClickListener {
 
-    TextView pName;
-    TextView pInfo;
-    TextView pNumber;
-    TextView pPosition;
-    TextView pYear;
+    TextView pName, pInfo, pNumber, pPosition, pYear;
+    //TODO: update imageView with image once upload is working in profile section
     ImageView profilePic;
+    Button evals, history, signOutBtn, profBtn;
+    String ID;
+    FirebaseUser user;
+    FirebaseDatabase database;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        Button evals = (Button) findViewById(R.id.evaluationsBtn);
-        evals.setOnClickListener(this);
-
-        Button history = (Button) findViewById(R.id.historybtn);
-        history.setOnClickListener(this);
-
-        Button signOutBtn = (Button) findViewById(R.id.signOut);
-        signOutBtn.setOnClickListener(this);
-
-        Button profBtn = (Button) findViewById(R.id.profileBtn);
-        profBtn.setOnClickListener(this);
-
-        String ID;
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+        database = FirebaseDatabase.getInstance();
+        evals = (Button) findViewById(R.id.evaluationsBtn);
+        evals.setOnClickListener(this);
+        history = (Button) findViewById(R.id.historybtn);
+        history.setOnClickListener(this);
+        signOutBtn = (Button) findViewById(R.id.signOut);
+        signOutBtn.setOnClickListener(this);
+        profBtn = (Button) findViewById(R.id.profileBtn);
+        profBtn.setOnClickListener(this);
         pName = (TextView) findViewById(R.id.pName);
         pInfo = (TextView) findViewById(R.id.pInfo);
         pNumber = (TextView) findViewById(R.id.pNumber);
         pPosition = (TextView) findViewById(R.id.pPosition);
         pYear = (TextView) findViewById(R.id.pYear);
+
         database.getReference("users/"+ID+"/PlayerInformation/Name").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
