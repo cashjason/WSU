@@ -25,6 +25,7 @@ import java.util.Calendar;
 public class PostPracticeEval extends AppCompatActivity implements View.OnClickListener {
 
     String ID;
+    String Eval;
     TextView q1, q2, q3, q4, q5,q6;
     EditText notesText;
     SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek;
@@ -63,6 +64,7 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
         submit.setOnClickListener(this);
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
+        Eval = "PostPracticeEval";
 
         database.getReference("Questions/General/question1").addValueEventListener(new ValueEventListener() {
             @Override
@@ -141,25 +143,25 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("question1Answer").setValue(rSeek.getProgress()+1);
 
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("question2Answer").setValue(aSeek.getProgress()+1);
 
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("question3Answer").setValue(iSeek.getProgress()+1);
 
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("question4Answer").setValue(dSeek.getProgress()+1);
 
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("question5Answer").setValue(eSeek.getProgress()+1);
 
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("question6Answer").setValue(r2Seek.getProgress()+1);
 
-        myRef.child("users").child(ID).child("PostPracticeEval")
+        myRef.child("users").child(ID).child(Eval)
                 .child(Date).child("notes").setValue(notesText.getText().toString());
 
         Toast.makeText(this, "Post Practice Evaluation Submitted!", Toast.LENGTH_SHORT).show();

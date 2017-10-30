@@ -25,7 +25,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
 
     String ID;
     String Eval;
-    TextView q1, q2, q3, q4, q5,q6, pq1, pq2, p1q, p2q, p3q, p4q;
+    TextView q1, q2, q3, q4, q5,q6, pitch1Q, pitch2Q, pitch3Q, pitch4Q, pitch5Q, pitch6Q;
     SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek, pitch1Seek, pitch2Seek;
     EditText notes, pgn1, pgn2, pgn3, pgn4, aNotes;
     Calendar calendar;
@@ -50,12 +50,12 @@ public class PostGameEvalPitcher extends AppCompatActivity {
         q4 = (TextView) findViewById(R.id.q4);
         q5 = (TextView) findViewById(R.id.q5);
         q6 = (TextView) findViewById(R.id.q6);
-        p1q = (TextView) findViewById(R.id.pitch1Q);
-        p2q = (TextView) findViewById(R.id.pitch2Q);
-        p3q = (TextView) findViewById(R.id.pitch3Q);
-        p4q = (TextView) findViewById(R.id.pitch4Q);
-        pq1 = (TextView) findViewById(R.id.pq1);
-        pq2 = (TextView) findViewById(R.id.pq2);
+        pitch1Q = (TextView) findViewById(R.id.pq1);
+        pitch2Q = (TextView) findViewById(R.id.pq2);
+        pitch3Q = (TextView) findViewById(R.id.pitch1Q);
+        pitch4Q = (TextView) findViewById(R.id.pitch2Q);
+        pitch5Q = (TextView) findViewById(R.id.pitch3Q);
+        pitch6Q = (TextView) findViewById(R.id.pitch4Q);
         rSeek = (SeekBar) findViewById(R.id.Rseek);
         aSeek = (SeekBar) findViewById(R.id.Aseek);
         iSeek = (SeekBar) findViewById(R.id.Iseek);
@@ -152,7 +152,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                pq1.setText(value);
+                pitch1Q.setText(value);
             }
 
             @Override
@@ -165,7 +165,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                pq2.setText(value);
+                pitch2Q.setText(value);
             }
 
             @Override
@@ -178,7 +178,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                p1q.setText(value);
+                pitch3Q.setText(value);
             }
 
             @Override
@@ -191,7 +191,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                p2q.setText(value);
+                pitch4Q.setText(value);
             }
 
             @Override
@@ -204,7 +204,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                p3q.setText(value);
+                pitch5Q.setText(value);
             }
 
             @Override
@@ -217,7 +217,7 @@ public class PostGameEvalPitcher extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                p4q.setText(value);
+                pitch6Q.setText(value);
             }
 
             @Override
@@ -233,43 +233,43 @@ public class PostGameEvalPitcher extends AppCompatActivity {
 
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q1A").setValue(rSeek.getProgress()+1);
+                        .child(Date).child("question1Answer").setValue(rSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q2A").setValue(aSeek.getProgress()+1);
+                        .child(Date).child("question2Answer").setValue(aSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q3A").setValue(iSeek.getProgress()+1);
+                        .child(Date).child("question3Answer").setValue(iSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q4A").setValue(dSeek.getProgress()+1);
+                        .child(Date).child("question4Answer").setValue(dSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q5A").setValue(eSeek.getProgress()+1);
+                        .child(Date).child("question5Answer").setValue(eSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q6A").setValue(r2Seek.getProgress()+1);
+                        .child(Date).child("question6Answer").setValue(r2Seek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
                         .child(Date).child("notes").setValue(notes.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("pitchQ1").setValue(pitch1Seek.getProgress()+1);
+                        .child(Date).child("pitchQuestion1Answer").setValue(pitch1Seek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("pitchQ2").setValue(pitch2Seek.getProgress()+1);
+                        .child(Date).child("pitchQuestion2Answer").setValue(pitch2Seek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("pitcher1Notes").setValue(pgn1.getText().toString());
+                        .child(Date).child("pitchQuestion3NotesAnswer").setValue(pgn1.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("pitcher2Notes").setValue(pgn2.getText().toString());
+                        .child(Date).child("pitchQuestion4NotesAnswer").setValue(pgn2.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("pitcher3Notes").setValue(pgn3.getText().toString());
+                        .child(Date).child("pitchQuestion5NotesAnswer").setValue(pgn3.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("pitcher4Notes").setValue(pgn4.getText().toString());
+                        .child(Date).child("pitchQuestion6NotesAnswer").setValue(pgn4.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
                         .child(Date).child("additionalNotes").setValue(aNotes.getText().toString());

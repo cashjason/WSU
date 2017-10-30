@@ -25,7 +25,7 @@ public class PostBullpenEval extends AppCompatActivity {
 
     String ID;
     String Eval;
-    TextView q1, q2, q3, q4, q5,q6, abr1, abr2;
+    TextView q1, q2, q3, q4, q5,q6, bq1, bull1, bull2, bull3, bull4;
     SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek, bSeek;
     EditText notes, bull1Notes, bull2Notes, bull3Notes, bull4Notes;
     Calendar calendar;
@@ -50,8 +50,11 @@ public class PostBullpenEval extends AppCompatActivity {
         q4 = (TextView) findViewById(R.id.q4);
         q5 = (TextView) findViewById(R.id.q5);
         q6 = (TextView) findViewById(R.id.q6);
-        abr1 = (TextView) findViewById(R.id.abd1);
-        abr2 = (TextView) findViewById(R.id.abd2);
+        bq1 = (TextView) findViewById(R.id.bq1);
+        bull1 = (TextView) findViewById(R.id.bull1);
+        bull2 = (TextView) findViewById(R.id.bull2);
+        bull3 = (TextView) findViewById(R.id.bull3);
+        bull4 = (TextView) findViewById(R.id.bull4);
         rSeek = (SeekBar) findViewById(R.id.Rseek);
         aSeek = (SeekBar) findViewById(R.id.Aseek);
         iSeek = (SeekBar) findViewById(R.id.Iseek);
@@ -69,7 +72,7 @@ public class PostBullpenEval extends AppCompatActivity {
         myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
 
-        database.getReference("q/q1").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -81,7 +84,7 @@ public class PostBullpenEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q2").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question2").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -93,7 +96,7 @@ public class PostBullpenEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q3").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question3").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -105,7 +108,7 @@ public class PostBullpenEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q4").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question4").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -117,7 +120,7 @@ public class PostBullpenEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q5").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question5").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -130,11 +133,76 @@ public class PostBullpenEval extends AppCompatActivity {
             }
         });
 
-        database.getReference("q/q6").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question6").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 q6.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        database.getReference("Questions/Pitcher/bullpen").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                bq1.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        database.getReference("Questions/Pitcher/bullpen1").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                bull1.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        database.getReference("Questions/Pitcher/bullpen2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                bull1.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        database.getReference("Questions/Pitcher/bullpen2").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                bull1.setText(value);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        database.getReference("Questions/Pitcher/bullpen3").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String value = dataSnapshot.getValue(String.class);
+                bull1.setText(value);
             }
 
             @Override
@@ -150,40 +218,40 @@ public class PostBullpenEval extends AppCompatActivity {
 
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q1A").setValue(rSeek.getProgress()+1);
+                        .child(Date).child("question1Answer").setValue(rSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q2A").setValue(aSeek.getProgress()+1);
+                        .child(Date).child("question2Answer").setValue(aSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q3A").setValue(iSeek.getProgress()+1);
+                        .child(Date).child("question3Answer").setValue(iSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q4A").setValue(dSeek.getProgress()+1);
+                        .child(Date).child("question4Answer").setValue(dSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q5A").setValue(eSeek.getProgress()+1);
+                        .child(Date).child("question5Answer").setValue(eSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("q6A").setValue(r2Seek.getProgress()+1);
+                        .child(Date).child("question6Answer").setValue(r2Seek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
                         .child(Date).child("notes").setValue(notes.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("bullpenA").setValue(bSeek.getProgress()+1);
+                        .child(Date).child("bullpenQuestion1Answer").setValue(bSeek.getProgress()+1);
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("bull1Notes").setValue(bull1Notes.getText().toString());
+                        .child(Date).child("bullpenQuestion1Notes").setValue(bull1Notes.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("bull2Notes").setValue(bull2Notes.getText().toString());
+                        .child(Date).child("bullpenQuestion2Notes").setValue(bull2Notes.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("bull3Notes").setValue(bull3Notes.getText().toString());
+                        .child(Date).child("bullpenQuestion3Notes").setValue(bull3Notes.getText().toString());
 
                 myRef.child("users").child(ID).child(Eval)
-                        .child(Date).child("bull4Notes").setValue(bull4Notes.getText().toString());
+                        .child(Date).child("bullpenQuestion4Notes").setValue(bull4Notes.getText().toString());
 
                 Intent home = new Intent(getApplicationContext(), Home.class);
                 startActivity(home);

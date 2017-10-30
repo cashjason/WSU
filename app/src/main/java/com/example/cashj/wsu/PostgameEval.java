@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,20 +22,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-/**
- * Created by cashj on 9/20/2017.
- */
-
 public class PostgameEval extends AppCompatActivity {
 
     String ID;
-    String PostGameEval;
+    String Eval;
     TextView q1, q2, q3, q4, q5,q6, abr1, abr2;
     SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek, ab1Seek, ab2Seek;
     EditText notes, ab1Notes, ab2Notes, ab3Notes, ab4Notes, ab5Notes, ab6Notes, ab7Notes;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
     String Date;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,17 +73,12 @@ public class PostgameEval extends AppCompatActivity {
         ab6Notes = (EditText) findViewById(R.id.ab6Notes);
         ab7Notes = (EditText) findViewById(R.id.ab7Notes);
 
-        PostGameEval = "PostGameEval";
-
-        // Get instance of database
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-
-        // Get reference to database
-        final DatabaseReference myRef = database
-                .getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
+        Eval = "PostGameEval";
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
 
-        database.getReference("q/q1").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -96,7 +90,7 @@ public class PostgameEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q2").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question2").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -108,7 +102,7 @@ public class PostgameEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q3").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question3").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -120,7 +114,7 @@ public class PostgameEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q4").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question4").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -132,7 +126,7 @@ public class PostgameEval extends AppCompatActivity {
 
             }
         });
-        database.getReference("q/q5").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question5").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -145,7 +139,7 @@ public class PostgameEval extends AppCompatActivity {
             }
         });
 
-        database.getReference("q/q6").addValueEventListener(new ValueEventListener() {
+        database.getReference("Questions/General/question6").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -190,54 +184,55 @@ public class PostgameEval extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q1A").setValue(rSeek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("question1Answer").setValue(rSeek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q2A").setValue(aSeek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("question2Answer").setValue(aSeek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q3A").setValue(iSeek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("question3Answer").setValue(iSeek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q4A").setValue(dSeek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("question4Answer").setValue(dSeek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q5A").setValue(eSeek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("question5Answer").setValue(eSeek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("q6A").setValue(r2Seek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("question6Answer").setValue(r2Seek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
+                myRef.child("users").child(ID).child(Eval)
                         .child(Date).child("notes").setValue(notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab1A").setValue(ab1Seek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat1Answer").setValue(ab1Seek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab2A").setValue(ab2Seek.getProgress()+1);
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat2Answer").setValue(ab2Seek.getProgress()+1);
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab1Notes").setValue(ab1Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat1Notes").setValue(ab1Notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab2Notes").setValue(ab2Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat2Notes").setValue(ab2Notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab3Notes").setValue(ab3Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat3Notes").setValue(ab3Notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab4Notes").setValue(ab4Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat4Notes").setValue(ab4Notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab5Notes").setValue(ab5Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat5Notes").setValue(ab5Notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab6Notes").setValue(ab6Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat6Notes").setValue(ab6Notes.getText().toString());
 
-                myRef.child("users").child(ID).child(PostGameEval)
-                        .child(Date).child("ab7Notes").setValue(ab7Notes.getText().toString());
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("atBat7Notes").setValue(ab7Notes.getText().toString());
 
+                Toast.makeText(PostgameEval.this, "Post Game Evaluation Submitted!", Toast.LENGTH_SHORT).show();
                 Intent home = new Intent(getApplicationContext(), Home.class);
                 startActivity(home);
             }
