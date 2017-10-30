@@ -52,4 +52,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Post Game" />
+
+    <Button
+        android:id="@+id/postGameEvalPitcher"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post Game" />
 </LinearLayout>

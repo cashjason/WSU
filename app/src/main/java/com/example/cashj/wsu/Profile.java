@@ -160,7 +160,6 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             v.setTeam(pTeam.getSelectedItem().toString());
             v.setYear(pYear.getSelectedItem().toString());
             v.setPosition(pPosition.getSelectedItem().toString());
-
             Intent home = new Intent(getApplicationContext(), Home.class);
             startActivity(home);
         }

@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,26 +21,25 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class PostPracticeEval extends AppCompatActivity implements View.OnClickListener {
+public class PostBullpenEval extends AppCompatActivity {
 
     String ID;
-    TextView q1, q2, q3, q4, q5,q6;
-    EditText notesText;
-    SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek;
-    Button submit;
-    String Date;
-    FirebaseUser user;
+    String Eval;
+    TextView q1, q2, q3, q4, q5,q6, abr1, abr2;
+    SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek, bSeek;
+    EditText notes, bull1Notes, bull2Notes, bull3Notes, bull4Notes;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
+    String Date;
     FirebaseDatabase database;
     DatabaseReference myRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.postpractice);
+        setContentView(R.layout.post_bullpen_eval);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
         calendar = Calendar.getInstance();
         simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
@@ -52,19 +50,26 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
         q4 = (TextView) findViewById(R.id.q4);
         q5 = (TextView) findViewById(R.id.q5);
         q6 = (TextView) findViewById(R.id.q6);
-        notesText = (EditText) findViewById(R.id.notesText);
+        abr1 = (TextView) findViewById(R.id.abd1);
+        abr2 = (TextView) findViewById(R.id.abd2);
         rSeek = (SeekBar) findViewById(R.id.Rseek);
         aSeek = (SeekBar) findViewById(R.id.Aseek);
         iSeek = (SeekBar) findViewById(R.id.Iseek);
         dSeek = (SeekBar) findViewById(R.id.Dseek);
         eSeek = (SeekBar) findViewById(R.id.Eseek);
         r2Seek = (SeekBar) findViewById(R.id.R2seek);
-        submit = (Button) findViewById(R.id.submitBtn);
-        submit.setOnClickListener(this);
+        bSeek = (SeekBar) findViewById(R.id.bpSeek);
+        notes = (EditText) findViewById(R.id.notesText);
+        bull1Notes = (EditText) findViewById(R.id.b1Notes);
+        bull2Notes = (EditText) findViewById(R.id.b2Notes);
+        bull3Notes = (EditText) findViewById(R.id.b3Notes);
+        bull4Notes = (EditText) findViewById(R.id.b4Notes);
+        Eval = "PostBullpenEval";
         database = FirebaseDatabase.getInstance();
         myRef = database.getReferenceFromUrl("https://wsu-baseball.firebaseio.com");
 
-        database.getReference("Questions/General/question1").addValueEventListener(new ValueEventListener() {
+
+        database.getReference("q/q1").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -76,7 +81,7 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
 
             }
         });
-        database.getReference("Questions/General/question2").addValueEventListener(new ValueEventListener() {
+        database.getReference("q/q2").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -88,7 +93,7 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
 
             }
         });
-        database.getReference("Questions/General/question3").addValueEventListener(new ValueEventListener() {
+        database.getReference("q/q3").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -100,7 +105,7 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
 
             }
         });
-        database.getReference("Questions/General/question4").addValueEventListener(new ValueEventListener() {
+        database.getReference("q/q4").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -112,7 +117,7 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
 
             }
         });
-        database.getReference("Questions/General/question5").addValueEventListener(new ValueEventListener() {
+        database.getReference("q/q5").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -125,7 +130,7 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
             }
         });
 
-        database.getReference("Questions/General/question6").addValueEventListener(new ValueEventListener() {
+        database.getReference("q/q6").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
@@ -137,33 +142,54 @@ public class PostPracticeEval extends AppCompatActivity implements View.OnClickL
 
             }
         });
+
+        Button btnSendDataToServer = (Button) findViewById(R.id.submitBtn);
+        btnSendDataToServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("q1A").setValue(rSeek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("q2A").setValue(aSeek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("q3A").setValue(iSeek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("q4A").setValue(dSeek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("q5A").setValue(eSeek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("q6A").setValue(r2Seek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("notes").setValue(notes.getText().toString());
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("bullpenA").setValue(bSeek.getProgress()+1);
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("bull1Notes").setValue(bull1Notes.getText().toString());
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("bull2Notes").setValue(bull2Notes.getText().toString());
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("bull3Notes").setValue(bull3Notes.getText().toString());
+
+                myRef.child("users").child(ID).child(Eval)
+                        .child(Date).child("bull4Notes").setValue(bull4Notes.getText().toString());
+
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                startActivity(home);
+            }
+        });
     }
 
-    @Override
-    public void onClick(View v) {
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("question1Answer").setValue(rSeek.getProgress()+1);
-
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("question2Answer").setValue(aSeek.getProgress()+1);
-
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("question3Answer").setValue(iSeek.getProgress()+1);
-
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("question4Answer").setValue(dSeek.getProgress()+1);
-
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("question5Answer").setValue(eSeek.getProgress()+1);
-
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("question6Answer").setValue(r2Seek.getProgress()+1);
-
-        myRef.child("users").child(ID).child("PostPracticeEval")
-                .child(Date).child("notes").setValue(notesText.getText().toString());
-
-        Toast.makeText(this, "Post Practice Evaluation Submitted!", Toast.LENGTH_SHORT).show();
-        Intent home = new Intent(getApplicationContext(), Home.class);
-        startActivity(home);
-    }
 }
+

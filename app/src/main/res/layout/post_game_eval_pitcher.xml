@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -203,19 +202,19 @@
                 android:id="@+id/ab6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="At Bats"
+                android:text="Awareness Questions"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/abd1"
+                android:id="@+id/pq1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="ab1" />
+                android:text="pq1" />
 
             <SeekBar
-                android:id="@+id/abSeek"
+                android:id="@+id/pitch1Seek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -223,14 +222,14 @@
                 android:progress="4" />
 
             <TextView
-                android:id="@+id/abd2"
+                android:id="@+id/pq2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="ab2" />
+                android:text="pq2" />
 
             <SeekBar
-                android:id="@+id/ab2Seek"
+                android:id="@+id/pitch2Seek"
                 style="@style/SeekStyle"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -238,13 +237,13 @@
                 android:progress="4" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/pitch1Q"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="At Bat 1 Notes:" />
+                android:text="pitcher1" />
 
             <EditText
-                android:id="@+id/ab1Notes"
+                android:id="@+id/pitch1A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.43"
@@ -252,13 +251,13 @@
                 android:inputType="textMultiLine" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/pitch2Q"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="At Bat 2 Notes:" />
+                android:text="pitcher2" />
 
             <EditText
-                android:id="@+id/ab2Notes"
+                android:id="@+id/pitch2A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.43"
@@ -266,13 +265,13 @@
                 android:inputType="textMultiLine" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/pitch3Q"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="At Bat 3 Notes:" />
+                android:text="pitcher3" />
 
             <EditText
-                android:id="@+id/ab3Notes"
+                android:id="@+id/pitch3A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.43"
@@ -280,13 +279,13 @@
                 android:inputType="textMultiLine" />
 
             <TextView
-                android:id="@+id/textView10"
+                android:id="@+id/pitch4Q"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="At Bat 4 Notes:" />
+                android:text="pitcher4" />
 
             <EditText
-                android:id="@+id/ab4Notes"
+                android:id="@+id/pitch4A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.43"
@@ -294,41 +293,13 @@
                 android:inputType="textMultiLine" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/aNotes:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="At Bat 5 Notes:" />
+                android:text="Additional Notes:" />
 
             <EditText
-                android:id="@+id/ab5Notes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.43"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="At Bat 6 Notes:" />
-
-            <EditText
-                android:id="@+id/ab6Notes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.43"
-                android:ems="10"
-                android:inputType="textMultiLine" />
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="At Bat 7 Notes:" />
-
-            <EditText
-                android:id="@+id/ab7Notes"
+                android:id="@+id/aNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.43"

@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Evaluations extends AppCompatActivity implements View.OnClickListener {
-    Button bullpenEval, gameEval, practiceEval;
+    Button bullpenEval, gameEval, practiceEval, pitcherGameEval;
     String ID;
     FirebaseUser user;
     FirebaseDatabase database;
@@ -32,6 +32,8 @@ public class Evaluations extends AppCompatActivity implements View.OnClickListen
         gameEval.setOnClickListener(this);
         bullpenEval = (Button) findViewById(R.id.bullpenEval);
         bullpenEval.setOnClickListener(this);
+        pitcherGameEval = (Button) findViewById(R.id.postGameEvalPitcher);
+        pitcherGameEval.setOnClickListener(this);
         user = FirebaseAuth.getInstance().getCurrentUser();
         ID =  user.getUid();
         database = FirebaseDatabase.getInstance();
@@ -42,6 +44,9 @@ public class Evaluations extends AppCompatActivity implements View.OnClickListen
                 String value = dataSnapshot.getValue(String.class);
                 if (value.equals("Hitter")){
                     bullpenEval.setVisibility(View.GONE);
+                    pitcherGameEval.setVisibility(View.GONE);
+                }else{
+                    gameEval.setVisibility(View.GONE);
                 }
             }
             @Override
@@ -54,16 +59,20 @@ public class Evaluations extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         int i = v.getId();
         //TODO: Create bullpenEval class, link to Evaluations.java
-        //if (i == R.id.bullPen) {
-        //    Intent act = new Intent(getApplicationContext(), bullpenEval.class);
-        //    startActivity(act);
-        //}
+        if (i == R.id.bullpenEval) {
+            Intent act = new Intent(getApplicationContext(), PostBullpenEval.class);
+            startActivity(act);
+        }
         if (i == R.id.postPreacticeEval) {
             Intent act = new Intent(getApplicationContext(), PostPracticeEval.class);
             startActivity(act);
         }
         if (i == R.id.postGameEval) {
             Intent act = new Intent(getApplicationContext(), PostgameEval.class);
+            startActivity(act);
+        }
+        if (i == R.id.postGameEvalPitcher) {
+            Intent act = new Intent(getApplicationContext(), PostGameEvalPitcher.class);
             startActivity(act);
         }
     }

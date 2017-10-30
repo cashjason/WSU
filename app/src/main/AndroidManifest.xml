@@ -24,6 +24,14 @@
             android:label="Pregame Evaluation"
             android:theme="@style/AppTheme">
         </activity>
+        <activity android:name=".PostGameEvalPitcher"
+            android:label="Pregame Evaluation"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name=".PostBullpenEval"
+            android:label="Pregame Evaluation"
+            android:theme="@style/AppTheme">
+        </activity>
         <activity android:name=".History"
             android:label="History"
             android:theme="@style/AppTheme">
