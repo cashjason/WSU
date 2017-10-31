@@ -41,7 +41,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     TextView pName, pInfo, pNumber, pPosition, pYear;
     //TODO: update imageView with image once upload is working in profile section
     ImageView profilePic;
-    Button evals, history, signOutBtn, profBtn;
+    Button evals, history, signOutBtn, profBtn, progress;
     String ID;
     FirebaseUser user;
     FirebaseDatabase database;
@@ -58,6 +58,8 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         evals.setOnClickListener(this);
         history = (Button) findViewById(R.id.historybtn);
         history.setOnClickListener(this);
+        progress = (Button) findViewById(R.id.progressBtn);
+        progress.setOnClickListener(this);
         signOutBtn = (Button) findViewById(R.id.signOut);
         signOutBtn.setOnClickListener(this);
         profBtn = (Button) findViewById(R.id.profileBtn);
@@ -161,6 +163,10 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         }
         if (i == R.id.historybtn) {
             Intent act = new Intent(getApplicationContext(), History.class);
+            startActivity(act);
+        }
+        if (i == R.id.progressBtn) {
+            Intent act = new Intent(getApplicationContext(), Progress.class);
             startActivity(act);
         }
         if (i == R.id.profileBtn) {
