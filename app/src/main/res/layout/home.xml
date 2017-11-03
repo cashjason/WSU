@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/scoreboard"
+    android:background="@drawable/dugout"
     android:backgroundTint="@color/background_green"
     android:backgroundTintMode="src_over"
     android:orientation="vertical">
@@ -56,9 +56,9 @@
                     android:id="@+id/profilePic"
                     android:layout_width="129dp"
                     android:layout_height="133dp"
-                    android:background="@drawable/none"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/none"
                     android:padding="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/none" />
@@ -66,8 +66,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
                     android:gravity="center"
 
                     android:orientation="vertical">

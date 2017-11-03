@@ -38,6 +38,7 @@ public class History extends AppCompatActivity implements View.OnClickListener {
     ArrayList list;
     Button postGame, postPractice, postBullpen;
     String ID;
+    String selectedDate;
     FirebaseUser user;
     //TODO: Fix bug where when the cal is clicked the items appear. make show when cal opened.
     @Override
@@ -57,7 +58,11 @@ public class History extends AppCompatActivity implements View.OnClickListener {
         postGame.setVisibility(View.GONE);
         postPractice.setVisibility(View.GONE);
         postBullpen.setVisibility(View.GONE);
+        postBullpen.setOnClickListener(this);
         postGame.setOnClickListener(this);
+        postPractice.setOnClickListener(this);
+        postGame.setOnClickListener(this);
+        selectedDate = "";
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mDatabase.child("users/"+ID+"/PostGameEval/").addValueEventListener(new ValueEventListener() {
@@ -128,6 +133,8 @@ public class History extends AppCompatActivity implements View.OnClickListener {
                             Date evalDate = null;
                             try {
                                 evalDate = sdf.parse(snap.getKey().toString());
+                                selectedDate = snap.getKey();
+
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
@@ -150,6 +157,7 @@ public class History extends AppCompatActivity implements View.OnClickListener {
                             Date evalDate = null;
                             try {
                                 evalDate = sdf.parse(snap.getKey().toString());
+                                selectedDate = snap.getKey();
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
@@ -176,16 +184,22 @@ public class History extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.PostPracticeEvalBtn) {
-            Intent act = new Intent(getApplicationContext(), Evaluations.class);
+        if (i == R.id.PostGameEvalBtn) {
+            Intent act = new Intent(getApplicationContext(), DisplayEvaluations.class);
+            act.putExtra("EVAL", "PostGameEval");
+            act.putExtra("DATE", selectedDate);
             startActivity(act);
         }
         if (i == R.id.PostPracticeEvalBtn) {
-            Intent act = new Intent(getApplicationContext(), History.class);
+            Intent act = new Intent(getApplicationContext(), DisplayEvaluations.class);
+            act.putExtra("EVAL", "PostPracticeEval");
+            act.putExtra("DATE", selectedDate);
             startActivity(act);
         }
         if (i == R.id.PostBullpenBtn) {
-            Intent act = new Intent(getApplicationContext(), Profile.class);
+            Intent act = new Intent(getApplicationContext(), DisplayEvaluations.class);
+            act.putExtra("EVAL", "PostBullpenEval");
+            act.putExtra("DATE", selectedDate);
             startActivity(act);
         }
     }

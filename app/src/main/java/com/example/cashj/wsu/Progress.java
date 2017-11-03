@@ -183,8 +183,6 @@ public class Progress extends AppCompatActivity implements View.OnClickListener,
             }
         }
 
-
-
         System.out.println("R1 = " + newR1);
         System.out.println("A = " + newA);
         System.out.println("I = " + newI);
@@ -213,42 +211,41 @@ public class Progress extends AppCompatActivity implements View.OnClickListener,
         series.setAnimated(true);
         graph.addSeries(series);
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph);
+        graph.getGridLabelRenderer().setVerticalAxisTitle("Scores");
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("\nRAIDER Questions");
         staticLabelsFormatter.setHorizontalLabels(new String[] {"", "R", "A", "I", "D", "E", "R", ""});
         staticLabelsFormatter.setVerticalLabels(new String[] {"0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
         graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
         graph.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
-        graph.setTitle("Average Post Game Scores");
+        graph.setTitle("Average Evaluation Scores");
 
         series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, DataPointInterface dataPoint) {
                 int value = (int)dataPoint.getX();
                 if (value == 1){
-                    showQuestionGraph(newR1);
+                    showQuestionGraph(newR1, "R = Relaxation Level");
                 }else if(value == 2){
-                    showQuestionGraph(newA);
+                    showQuestionGraph(newA, "A = Amp Level");
                 }
                 else if(value == 3){
-                    showQuestionGraph(newI);
+                    showQuestionGraph(newI, "I = Imagine Before Action");
                 }
                 else if(value == 4){
-                    showQuestionGraph(newD);
+                    showQuestionGraph(newD, "D = Dominate THIS Moment");
                 }
                 else if(value == 5){
-                    showQuestionGraph(newE);
+                    showQuestionGraph(newE, "E = Embrace Advirsity");
                 }
                 else if(value == 6){
-                    showQuestionGraph(newR2);
+                    showQuestionGraph(newR2, "R = Routines");
                 }
             }
         });
     }
 
-    public void showQuestionGraph(ArrayList<Integer> question){
-
-
+    public void showQuestionGraph(ArrayList<Integer> question, String title){
         System.out.println("Dates = " + dates);
-
         graph2.setVisibility(View.VISIBLE);
         graph2.removeAllSeries();
         graph2.getViewport().setMaxY(10);
@@ -262,6 +259,7 @@ public class Progress extends AppCompatActivity implements View.OnClickListener,
         for (int i = 1; i < question.size(); i++){
             series.appendData(new DataPoint(series.getHighestValueX()+1, 0 + question.get(i)), true, 40);
         }
+        graph2.setTitle(title);
         graph2.setMinimumHeight(10);
         series.setDrawAsPath(true);
         graph2.addSeries(series);
@@ -270,6 +268,8 @@ public class Progress extends AppCompatActivity implements View.OnClickListener,
         StaticLabelsFormatter staticLabelsFormatter = new StaticLabelsFormatter(graph2);
         staticLabelsFormatter.setVerticalLabels(new String[] {"0","1", "2", "3", "4", "5", "6", "7", "8", "9", "10"});
         graph2.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
+        graph2.getGridLabelRenderer().setVerticalAxisTitle("Scores");
+        graph2.getGridLabelRenderer().setHorizontalAxisTitle("# of Evals From Oldest to Newest");
         graph2.getGridLabelRenderer().setGridStyle( GridLabelRenderer.GridStyle.HORIZONTAL );
     }
 }
