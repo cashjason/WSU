@@ -106,20 +106,25 @@ public class History extends AppCompatActivity implements View.OnClickListener {
         });
         //TODO: Add bullpen evaluations to history section.
         //This is for the bullpen
-//        mDatabase.child("users/"+ID+"/PostGameEval/").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//                for (DataSnapshot snap : dataSnapshot.getChildren()) {
-////                    list.add(snap.toString());
-////                    snap.getKey().toString();// This will get the date of all of the children of posgame evals
-//                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" + snap.getKey().toString() + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//                }
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });//End of UserData Query
+        mDatabase.child("users/"+ID+"/PostBullpenEval/").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    Date date = null;
+                    try {
+                        date = sdf.parse(snap.getKey().toString());
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    long millis = date.getTime();
+                    Event evt = new Event(Color.BLUE, millis);
+                    compactCalendar.addEvent(evt);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });//End of UserData Query
 
         compactCalendar.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -164,6 +169,29 @@ public class History extends AppCompatActivity implements View.OnClickListener {
                             long millis = evalDate.getTime();
                             if (currentDate == millis){
                                 postPractice.setVisibility(View.VISIBLE);
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+                mDatabase.child("users/"+ID+"/PostBullpenEval/").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        postBullpen.setVisibility(View.GONE);
+                        for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                            long currentDate = dateClicked.getTime();
+                            Date evalDate = null;
+                            try {
+                                evalDate = sdf.parse(snap.getKey().toString());
+                                selectedDate = snap.getKey();
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            long millis = evalDate.getTime();
+                            if (currentDate == millis){
+                                postBullpen.setVisibility(View.VISIBLE);
                             }
                         }
                     }

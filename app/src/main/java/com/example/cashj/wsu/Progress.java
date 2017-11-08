@@ -204,7 +204,7 @@ public class Progress extends AppCompatActivity implements View.OnClickListener,
         series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
             @Override
             public int get(DataPoint data) {
-                return Color.rgb((int)Math.abs(data.getX()*255/4), (int) Math.abs(data.getY()*255/6), 100);
+                return Color.rgb(100, (int) Math.abs(data.getY()*255/4), (int)Math.abs(data.getX()*255/4));
             }
         });
         series.setSpacing(25);

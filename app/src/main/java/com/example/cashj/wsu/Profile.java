@@ -116,9 +116,14 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 String[] pTeamArr = getResources().getStringArray(R.array.team_arrays);
+                pTeam.setSelection(0);
                 for (int j = 0; j < pTeamArr.length; j++) {
-                    if (value.equals(pTeamArr[j])) {
-                        pTeam.setSelection(j);
+                    try{
+                        if (value.equals(pTeamArr[j])) {
+                            pTeam.setSelection(j);
+                        }
+                    }catch(NullPointerException e){
+                        continue;
                     }
                 }
             }
@@ -132,10 +137,16 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 String[] pYearArr = getResources().getStringArray(R.array.year_arrays);
+                pYear.setSelection(0);
                 for (int j = 0; j < pYearArr.length; j++) {
-                    if (value.equals(pYearArr[j])) {
-                        pYear.setSelection(j);
+                    try{
+                        if (value.equals(pYearArr[j])) {
+                            pYear.setSelection(j);
+                        }
+                    }catch(NullPointerException e){
+                        continue;
                     }
+
                 }
             }
 
@@ -148,13 +159,17 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
                 String[] pPosArr = getResources().getStringArray(R.array.position_arrays);
+                pPosition.setSelection(0);
                 for (int j = 0; j < pPosArr.length; j++) {
-                    if (value.equals(pPosArr[j])) {
-                        pPosition.setSelection(j);
+                    try{
+                        if (value.equals(pPosArr[j])) {
+                            pPosition.setSelection(j);
+                        }
+                    }catch(NullPointerException e){
+                        continue;
                     }
                 }
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
