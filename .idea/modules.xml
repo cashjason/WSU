@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DiamynPerformance.iml" filepath="$PROJECT_DIR$/DiamynPerformance.iml" />
-      <module fileurl="file://C:\Users\cashj\Documents\Android\DiamynPerformance\.idea\WSU.iml" filepath="C:\Users\cashj\Documents\Android\DiamynPerformance\.idea\WSU.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WSU.iml" filepath="$PROJECT_DIR$/WSU.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\cashj\Documents\Android\DiamynPerformance\app\app.iml" filepath="C:\Users\cashj\Documents\Android\DiamynPerformance\app\app.iml" />
     </modules>
   </component>
 </project>

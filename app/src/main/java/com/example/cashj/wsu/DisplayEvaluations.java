@@ -20,7 +20,8 @@ import java.text.SimpleDateFormat;
 public class DisplayEvaluations extends AppCompatActivity {
 
     String ID;
-    TextView title, q1, q2, q3, q4, q5,q6, bq1, bull1, bull2, bull3, bull4, abr1, abr2, pitch1Q, pitch2Q, pitch3Q, pitch4Q, pitch5Q, pitch6Q;
+    TextView title, q1, q2, q3, q4, q5,q6, bq1, bull1, bull2, bull3, bull4, abr1, abr2,
+            pitch1Q, pitch2Q, pitch3Q, pitch4Q, pitch5Q, pitch6Q;
     SeekBar rSeek, aSeek, iSeek, dSeek, eSeek, r2Seek, bSeek, ab1Seek, ab2Seek, pitch1Seek, pitch2Seek;
     EditText notes, bull1Notes, bull2Notes, bull3Notes, bull4Notes, ab1Notes, ab2Notes, ab3Notes,
             ab4Notes, ab5Notes, ab6Notes, ab7Notes, pgn1, pgn2, pgn3, pgn4, aNotes;
